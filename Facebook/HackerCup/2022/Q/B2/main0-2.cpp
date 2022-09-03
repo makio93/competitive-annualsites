@@ -1,4 +1,4 @@
-// 本番WA
+// 終了後,自力(未確認)
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,8 +44,9 @@ int main() {
                 int ni = i + di[ii], nj = j + dj[ii];
                 if (ni<0 || ni>=r || nj<0 || nj>=c || pic[ni][nj]=='#' || deg[ni][nj]==0) continue;
                 deg[ni][nj]--;
-                if (deg[ni][nj] == 0) {
-                    bads[ni][nj] = true;
+                if (deg[ni][nj] <= 1) bads[ni][nj] = true;
+                if (deg[ni][nj] == 1) {
+                    deg[ni][nj]--;
                     que.emplace(ni, nj);
                 }
             }
